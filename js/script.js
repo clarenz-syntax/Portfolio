@@ -102,40 +102,6 @@ const lObs = new IntersectionObserver(entries => {
 const lc = document.getElementById('learningCard');
 if (lc) lObs.observe(lc);
 
-// ── PHOTO UPLOAD (clean, no remove/change buttons) ──
-const photo = document.getElementById('profilePhoto');
-const photoContainer = document.getElementById('photoContainer');
-const uploadPlaceholder = document.getElementById('uploadPlaceholder');
-const photoInput = document.getElementById('photoInput');
-
-// Show saved photo on load
-const savedPhoto = localStorage.getItem('elton_pp');
-if (savedPhoto) {
-  photo.src = savedPhoto;
-  photo.style.display = 'block';
-  uploadPlaceholder.style.display = 'none';
-}
-
-// Click anywhere on the container to upload a new photo
-photoContainer.addEventListener('click', () => {
-  photoInput.click();
-});
-
-// Handle file selection
-function loadPhoto(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    const dataURL = ev.target.result;
-    localStorage.setItem('elton_pp', dataURL);
-    photo.src = dataURL;
-    photo.style.display = 'block';
-    uploadPlaceholder.style.display = 'none';
-  };
-  reader.readAsDataURL(file);
-}
-
 // ── CONTACT FORM ──
 function handleSend(btn) {
   btn.textContent = 'Sending...';
