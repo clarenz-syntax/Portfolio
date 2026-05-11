@@ -293,6 +293,7 @@ nav.stuck{
   justify-content:center;
   cursor:pointer;
 }
+
 .profile-photo-img{
   position:absolute;top:0;left:0;
   width:100%;height:100%;
@@ -300,7 +301,9 @@ nav.stuck{
   display:none;
   z-index:1;
   transition: opacity 0.3s;
+  object-position: top center;   /* or 'center', 'bottom', '20% 50%' */
 }
+
 .profile-photo-placeholder{
   display:flex;
   flex-direction:column;
@@ -324,26 +327,7 @@ nav.stuck{
   background:var(--orange-gl);
 }
 
-.remove-photo-btn{
-  position:absolute;
-  top:.7rem;right:.7rem;
-  z-index:4;
-  width:28px;height:28px;
-  border-radius:50%;
-  background:rgba(0,0,0,0.65);
-  color:#fff;
-  font-size:1rem;line-height:1;
-  border:none;
-  cursor:none;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  transition:background .2s, transform .2s;
-}
-.remove-photo-btn:hover{
-  background:var(--orange);
-  transform:scale(1.1);
-}
+/* (No remove button styles – removed for clean UI) */
 
 .profile-card-body{
   padding:1.1rem 1.3rem;
