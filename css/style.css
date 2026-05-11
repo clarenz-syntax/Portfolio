@@ -303,7 +303,7 @@ nav.stuck{
   transition: opacity 0.3s;
   object-position: top center;   /* or 'center', 'bottom', '20% 50%' */
 }
-
+    
 .profile-photo-placeholder{
   display:flex;
   flex-direction:column;
