@@ -102,39 +102,26 @@ const lObs = new IntersectionObserver(entries => {
 const lc = document.getElementById('learningCard');
 if (lc) lObs.observe(lc);
 
-// ── PHOTO UPLOAD (rectangular, with remove/change) ──
+// ── PHOTO UPLOAD (clean, no remove/change buttons) ──
 const photo = document.getElementById('profilePhoto');
 const photoContainer = document.getElementById('photoContainer');
 const uploadPlaceholder = document.getElementById('uploadPlaceholder');
-const removePhotoBtn = document.getElementById('removePhotoBtn');
 const photoInput = document.getElementById('photoInput');
 
+// Show saved photo on load
 const savedPhoto = localStorage.getItem('elton_pp');
 if (savedPhoto) {
   photo.src = savedPhoto;
   photo.style.display = 'block';
   uploadPlaceholder.style.display = 'none';
-  removePhotoBtn.style.display = 'flex';
 }
 
-function triggerUpload() {
+// Click anywhere on the container to upload a new photo
+photoContainer.addEventListener('click', () => {
   photoInput.click();
-}
-
-photoContainer.addEventListener('click', (e) => {
-  if (e.target === removePhotoBtn) return;
-  triggerUpload();
 });
 
-removePhotoBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  localStorage.removeItem('elton_pp');
-  photo.src = '';
-  photo.style.display = 'none';
-  uploadPlaceholder.style.display = 'flex';
-  removePhotoBtn.style.display = 'none';
-});
-
+// Handle file selection
 function loadPhoto(event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -145,7 +132,6 @@ function loadPhoto(event) {
     photo.src = dataURL;
     photo.style.display = 'block';
     uploadPlaceholder.style.display = 'none';
-    removePhotoBtn.style.display = 'flex';
   };
   reader.readAsDataURL(file);
 }
