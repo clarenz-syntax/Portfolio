@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Clarenz — Aspiring Software Engineer</title>
+  <title>Clarenz Kyle Z. Rocas — Aspiring Software Engineer</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <!-- Main Stylesheet -->
@@ -58,21 +58,14 @@
     </div>
 
     <div class="hero-right">
-      <!-- PROFILE CARD (no remove/change buttons) -->
+      <!-- PROFILE CARD (static photo, no upload) -->
       <div class="profile-card">
         <div class="profile-card-top">
           <span class="profile-frame-tag">photo.jpg</span>
-          <div class="profile-photo-container" id="photoContainer">
-            <img class="profile-photo-img" id="profilePhoto" src="" alt="Profile photo"/>
-            <div class="profile-photo-placeholder" id="uploadPlaceholder">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h7"/>
-                <circle cx="17" cy="7" r="3"/><path d="M11 13l2-2 4 4"/>
-              </svg>
-              <span>Upload Photo</span>
-            </div>
+          <div class="profile-photo-container">
+            <!-- 👇 Replace the src below with the actual path to your picture -->
+            <img class="profile-photo-img" src="images/clarenz.jpg" alt="Clarenz Kyle Rocas" style="display:block;"/>
           </div>
-          <input type="file" accept="image/*" id="photoInput" onchange="loadPhoto(event)" style="display:none"/>
         </div>
         <div class="profile-card-body">
           <div class="info-item">
@@ -116,10 +109,10 @@
       <div class="code-block">
         <div class="code-header">
           <div class="code-dots"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span></div>
-          <span class="code-fname">elton.js</span>
+          <span class="code-fname">clarenz.js</span>
         </div>
         <div class="code-body">
-          <div class="cl"><span class="ln">1</span><span class="kw">const</span>&nbsp;<span class="va">elton</span>&nbsp;<span class="sy">= {</span></div>
+          <div class="cl"><span class="ln">1</span><span class="kw">const</span>&nbsp;<span class="va">clarenz</span>&nbsp;<span class="sy">= {</span></div>
           <div class="cl"><span class="ln">2</span>&nbsp;&nbsp;<span class="va">degree</span><span class="sy">:</span>&nbsp;<span class="st">"B.S. IT"</span><span class="sy">,</span></div>
           <div class="cl"><span class="ln">3</span>&nbsp;&nbsp;<span class="va">building</span><span class="sy">:</span>&nbsp;<span class="st">"software"</span><span class="sy">,</span></div>
           <div class="cl"><span class="ln">4</span>&nbsp;&nbsp;<span class="va">mindset</span><span class="sy">:</span>&nbsp;<span class="st">"growth"</span><span class="sy">,</span></div>
@@ -161,7 +154,7 @@
     </div>
   </div>
 
-  <!-- ABOUT -->
+  <!-- ABOUT (unchanged) -->
   <section id="about">
     <div class="about-left reveal">
       <p class="section-label">About Me</p>
@@ -173,7 +166,7 @@
       </div>
       <div style="margin-top:1.8rem;display:flex;gap:.65rem;flex-wrap:wrap;">
         <a href="https://github.com" class="btn-primary" style="font-size:.65rem;padding:.75rem 1.45rem;text-decoration:none">GitHub Profile ↗</a>
-        <a href="#" class="btn-ghost" style="font-size:.65rem;padding:.75rem 1.45rem;text-decoration:none">Download CV</a>
+        <a href="cv/clarenz_rocas_resume.pdf" class="btn-ghost" download style="font-size:.65rem;padding:.75rem 1.45rem;text-decoration:none">Download CV</a>
       </div>
     </div>
 
@@ -223,7 +216,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (unchanged) -->
   <section id="projects">
     <div class="projects-header reveal">
       <div>
@@ -281,7 +274,7 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- SKILLS (unchanged) -->
   <section id="skills">
     <div class="reveal">
       <p class="section-label">Technical Skills</p>
@@ -381,7 +374,7 @@
     </div>
   </section>
 
-  <!-- TIMELINE -->
+  <!-- TIMELINE (unchanged) -->
   <section id="timeline">
     <div class="reveal">
       <p class="section-label">My Journey</p>
@@ -416,18 +409,18 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT (unchanged) -->
   <section id="contact">
     <div class="contact-left reveal">
       <p class="section-label">Contact</p>
       <h2 class="section-h">Let's<br>Connect<em>.</em></h2>
       <p>I'm a student looking for OJT placements, freelance work, or simply mentors and collaborators. If you have an opportunity or just want to talk tech — reach out!</p>
-      <a href="mailto:hello@yourname.com" class="contact-email">clarenzsyntax@gmail.com ↗</a>
+      <a href="mailto:clarenzsyntax@gmail.com" class="contact-email">clarenzsyntax@gmail.com ↗</a>
       <div class="contact-socials">
         <a href="https://github.com" target="https://github.com/clarenz-syntax" class="soc-pill">GitHub</a>
         <a href="https://linkedin.com" target="_blank" class="soc-pill">LinkedIn</a>
         <a href="https://facebook.com" target="https://www.facebook.com/itzclarenzzz" class="soc-pill">Facebook</a>
-        <a href="#" class="soc-pill">Resume PDF</a>
+        <a href="cv/clarenz_rocas_resume.pdf" class="soc-pill" download>Resume PDF</a>
       </div>
     </div>
     <div class="contact-right reveal" style="transition-delay:.15s">
@@ -445,7 +438,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 <em>Elton</em> — Built with HTML, CSS & JS</p>
+    <p>© 2025 <em>Clarenz Kyle Z. Rocas</em> — Built with HTML, CSS & JS</p>
     <p>BSIT Student · Philippines</p>
     <button class="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
   </footer>
