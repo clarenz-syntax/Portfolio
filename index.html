@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clarenz — Aspiring Software Engineer</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Animated tech background (3D orb + particles) -->
+  <canvas id="bgCanvas"></canvas>
+
+  <div id="cur"></div>
+  <div id="cur-ring"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="logo">clarenz<span class="logo-dot">.</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#timeline">Journey</a></li>
+      </ul>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <div class="theme-knob"></div>
+      </button>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Aspiring Software Engineer · 2nd Year BSIT</div>
+      <h1 class="hero-h1">
+        Building<br><span class="out">Software</span><br><span class="accent">Daily.</span>
+      </h1>
+      <p class="hero-sub">
+        A <strong>Bachelor of Science in Information Technology</strong> student with a clear goal: become a well‑rounded software engineer. I build real projects, learn every day, and chase clean, maintainable code.
+      </p>
+      <div class="typer-line">
+        <span class="typer-label">→</span>
+        <span id="typer"></span><span class="cblink"></span>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">See My Work ↓</a>
+        <a href="https://github.com" target="_blank" class="btn-ghost">GitHub ↗</a>
+      </div>
+      <div class="hero-scroll-hint">
+        <span class="scroll-arr">↓</span>scroll to explore
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- PROFILE CARD with rectangular photo -->
+      <div class="profile-card">
+        <div class="profile-card-top">
+          <span class="profile-frame-tag">photo.jpg</span>
+          <div class="profile-photo-container" id="photoContainer">
+            <img class="profile-photo-img" id="profilePhoto" src="" alt="Profile photo"/>
+            <div class="profile-photo-placeholder" id="uploadPlaceholder">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h7"/>
+                <circle cx="17" cy="7" r="3"/><path d="M11 13l2-2 4 4"/>
+              </svg>
+              <span>Upload Photo</span>
+            </div>
+            <button class="remove-photo-btn" id="removePhotoBtn" title="Remove photo">×</button>
+          </div>
+          <input type="file" accept="image/*" id="photoInput" onchange="loadPhoto(event)" style="display:none"/>
+        </div>
+        <div class="profile-card-body">
+          <div class="info-item">
+            <div class="info-label">Program</div>
+            <div class="info-val">BSIT</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Year</div>
+            <div class="info-val accent">2nd Year</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-val">Philippines</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Status</div>
+            <div class="info-val navy">
+              <div class="status-pill">
+                <span class="status-dot"></span>Open to Opps
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quick-stats">
+        <div class="qs">
+          <div class="qs-n">1</div>
+          <div class="qs-l">Live Project</div>
+        </div>
+        <div class="qs">
+          <div class="qs-n">2+</div>
+          <div class="qs-l">Yrs Learning</div>
+        </div>
+        <div class="qs">
+          <div class="qs-n">∞</div>
+          <div class="qs-l">Curiosity</div>
+        </div>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <div class="code-dots"><span class="cd cd-r"></span><span class="cd cd-y"></span><span class="cd cd-g"></span></div>
+          <span class="code-fname">elton.js</span>
+        </div>
+        <div class="code-body">
+          <div class="cl"><span class="ln">1</span><span class="kw">const</span>&nbsp;<span class="va">elton</span>&nbsp;<span class="sy">= {</span></div>
+          <div class="cl"><span class="ln">2</span>&nbsp;&nbsp;<span class="va">degree</span><span class="sy">:</span>&nbsp;<span class="st">"B.S. IT"</span><span class="sy">,</span></div>
+          <div class="cl"><span class="ln">3</span>&nbsp;&nbsp;<span class="va">building</span><span class="sy">:</span>&nbsp;<span class="st">"software"</span><span class="sy">,</span></div>
+          <div class="cl"><span class="ln">4</span>&nbsp;&nbsp;<span class="va">mindset</span><span class="sy">:</span>&nbsp;<span class="st">"growth"</span><span class="sy">,</span></div>
+          <div class="cl"><span class="ln">5</span>&nbsp;&nbsp;<span class="va">available</span><span class="sy">:</span>&nbsp;<span class="kw">true</span></div>
+          <div class="cl"><span class="ln">6</span><span class="sy">};</span>&nbsp;<span class="cm">// aspiring software engineer 🚀</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER (unchanged) -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ti"><span class="ti-sep">✦</span>HTML & CSS</span>
+      <span class="ti"><span class="ti-sep">✦</span>JavaScript</span>
+      <span class="ti"><span class="ti-sep">✦</span>React.js</span>
+      <span class="ti"><span class="ti-sep">✦</span>Python</span>
+      <span class="ti"><span class="ti-sep">✦</span>SQL</span>
+      <span class="ti"><span class="ti-sep">✦</span>Git & GitHub</span>
+      <span class="ti"><span class="ti-sep">✦</span>Node.js</span>
+      <span class="ti"><span class="ti-sep">✦</span>Tailwind CSS</span>
+      <span class="ti"><span class="ti-sep">✦</span>Figma</span>
+      <span class="ti"><span class="ti-sep">✦</span>REST APIs</span>
+      <span class="ti"><span class="ti-sep">✦</span>Data Structures</span>
+      <span class="ti"><span class="ti-sep">✦</span>Object-Oriented Programming</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ti"><span class="ti-sep">✦</span>HTML & CSS</span>
+      <span class="ti"><span class="ti-sep">✦</span>JavaScript</span>
+      <span class="ti"><span class="ti-sep">✦</span>React.js</span>
+      <span class="ti"><span class="ti-sep">✦</span>Python</span>
+      <span class="ti"><span class="ti-sep">✦</span>SQL</span>
+      <span class="ti"><span class="ti-sep">✦</span>Git & GitHub</span>
+      <span class="ti"><span class="ti-sep">✦</span>Node.js</span>
+      <span class="ti"><span class="ti-sep">✦</span>Tailwind CSS</span>
+      <span class="ti"><span class="ti-sep">✦</span>Figma</span>
+      <span class="ti"><span class="ti-sep">✦</span>REST APIs</span>
+      <span class="ti"><span class="ti-sep">✦</span>Data Structures</span>
+      <span class="ti"><span class="ti-sep">✦</span>Object-Oriented Programming</span>
+    </div>
+  </div>
+
+  <!-- ABOUT (unchanged) -->
+  <section id="about">
+    <div class="about-left reveal">
+      <p class="section-label">About Me</p>
+      <h2 class="section-h">Who I<br>Am<em>.</em></h2>
+      <div class="about-text">
+        <p>I'm a <strong>2nd-year BS Information Technology student</strong> in the Philippines, but I think beyond the degree — I'm on a mission to become a <strong>full-stack software engineer</strong>. I started coding because I wanted to understand how technology really works, and now I can't stop building.</p>
+        <p>My focus is on <strong>web application development</strong> — from clean front‑end experiences with React to solid back‑end logic with Node.js. I'm still early in my journey, and that’s my greatest advantage: I'm <strong>hungry to learn, easy to coach, and not afraid to break things</strong> in the pursuit of better code.</p>
+        <p>Right now I spend my days strengthening JavaScript, mastering React, and learning system design fundamentals — all while looking for real-world team experience.</p>
+      </div>
+      <div style="margin-top:1.8rem;display:flex;gap:.65rem;flex-wrap:wrap;">
+        <a href="https://github.com" class="btn-primary" style="font-size:.65rem;padding:.75rem 1.45rem;text-decoration:none">GitHub Profile ↗</a>
+        <a href="#" class="btn-ghost" style="font-size:.65rem;padding:.75rem 1.45rem;text-decoration:none">Download CV</a>
+      </div>
+    </div>
+
+    <div class="about-right reveal" style="transition-delay:.15s">
+      <div class="edu-card">
+        <div class="edu-card-stripe"></div>
+        <div class="edu-badge">🎓 Currently Enrolled</div>
+        <div class="edu-school">Colegio de Sta. Teresa de Avila</div>
+        <div class="edu-deg">Bachelor of Science in Information Technology</div>
+        <div class="edu-spec">// Specialization: Software Engineering</div>
+        <div class="edu-meta">
+          <span>📅 2023 – 2027</span>
+          <span>📍 Philippines</span>
+          <span>Year 2 of 4</span>
+        </div>
+        <div class="edu-prog">
+          <div class="edu-prog-label">
+            <span>Academic Progress</span>
+            <span>50%</span>
+          </div>
+          <div class="prog-bar"><div class="prog-fill" id="progFill"></div></div>
+        </div>
+      </div>
+
+      <div class="strengths-grid">
+        <div class="strength-item">
+          <div class="strength-icon">🧠</div>
+          <div class="strength-title">Fast Learner</div>
+          <div class="strength-desc">Pick up new tools quickly and apply them to real projects immediately.</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-icon">🔍</div>
+          <div class="strength-title">Detail-Oriented</div>
+          <div class="strength-desc">I care about clean, readable code — not just code that works.</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-icon">🤝</div>
+          <div class="strength-title">Team Player</div>
+          <div class="strength-desc">Collaborate well, communicate clearly, and ask the right questions.</div>
+        </div>
+        <div class="strength-item">
+          <div class="strength-icon">🔨</div>
+          <div class="strength-title">Builder Mindset</div>
+          <div class="strength-desc">I learn best by building — I don't stop at tutorials.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS (unchanged) -->
+  <section id="projects">
+    <div class="projects-header reveal">
+      <div>
+        <p class="section-label">Work</p>
+        <h2 class="section-h">My<br>Projects<em>.</em></h2>
+      </div>
+      <a href="https://github.com" target="_blank" class="btn-ghost" style="text-decoration:none;align-self:flex-end">All on GitHub ↗</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;" class="reveal" style="transition-delay:.1s">
+      <div class="proj-card" style="grid-column:1/-1">
+        <div class="proj-visual">
+          <div class="proj-visual-inner"></div>
+          <span class="proj-vis-label">P.01</span>
+          <span class="proj-vis-tag">Featured Project</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-tech">
+            <span class="tech-tag hl">HTML</span>
+            <span class="tech-tag hl">CSS</span>
+            <span class="tech-tag hl">JavaScript</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <h3 class="proj-title">[ Your Project Name Here ]</h3>
+          <p class="proj-desc">Describe what your project does in 1–2 sentences. What problem does it solve? Who is it for? Be specific — even a small school project can be framed professionally.</p>
+          <div class="proj-highlights">
+            <div class="ph"><span class="ph-dot">▸</span>Highlight a key feature or technical decision you made</div>
+            <div class="ph"><span class="ph-dot">▸</span>Mention what you learned building it</div>
+            <div class="ph"><span class="ph-dot">▸</span>Note any challenge you solved along the way</div>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com" target="_blank" class="plink">⌥ View on GitHub ↗</a>
+            <a href="#" class="plink">▶ Live Demo ↗</a>
+          </div>
+        </div>
+      </div>
+      <div class="coming-card">
+        <div class="coming-icon">⚙️</div>
+        <div class="coming-title">Project #2 — In Progress</div>
+        <div class="coming-sub">Coming soon</div>
+      </div>
+      <div class="coming-card">
+        <div class="coming-icon">💡</div>
+        <div class="coming-title">Project #3 — Planning</div>
+        <div class="coming-sub">Ideas brewing</div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.8rem;padding:1.3rem 1.7rem;background:var(--navy-gl);border:1.5px solid color-mix(in srgb,var(--navy) 18%,transparent);border-radius:8px;display:flex;gap:.9rem;align-items:flex-start;" class="reveal">
+      <span style="font-size:1rem;flex-shrink:0">📌</span>
+      <p style="font-size:.84rem;color:var(--muted);line-height:1.75;">
+        <strong style="color:var(--ink);font-weight:500">Note:</strong> I'm early in my journey — this is my first completed project. I'm actively building more as I grow through coursework and self-study. Check my <a href="https://github.com" style="color:var(--orange)">GitHub</a> for the latest updates.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS (unchanged) -->
+  <section id="skills">
+    <div class="reveal">
+      <p class="section-label">Technical Skills</p>
+      <h2 class="section-h">What I<br>Know<em>.</em></h2>
+    </div>
+    <div class="skills-layout">
+      <div class="skill-groups reveal" style="transition-delay:.05s">
+        <div class="skill-group">
+          <div class="sg-title">Languages</div>
+          <div class="skill-row"><span>HTML & CSS</span><span class="s-level adv">Comfortable</span></div>
+          <div class="skill-row"><span>JavaScript</span><span class="s-level int">Learning</span></div>
+          <div class="skill-row"><span>Python</span><span class="s-level int">Learning</span></div>
+          <div class="skill-row"><span>PHP</span><span class="s-level">Basics</span></div>
+          <div class="skill-row"><span>SQL</span><span class="s-level">Basics</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-title">Tools & Platforms</div>
+          <div class="skill-row"><span>Git & GitHub</span><span class="s-level adv">Comfortable</span></div>
+          <div class="skill-row"><span>VS Code</span><span class="s-level adv">Daily Driver</span></div>
+          <div class="skill-row"><span>Figma</span><span class="s-level">Basics</span></div>
+          <div class="skill-row"><span>MySQL / phpMyAdmin</span><span class="s-level">Basics</span></div>
+        </div>
+        <div class="skill-group">
+          <div class="sg-title">Frameworks & Libraries</div>
+          <div class="skill-row"><span>React.js</span><span class="s-level int">Learning</span></div>
+          <div class="skill-row"><span>Tailwind CSS</span><span class="s-level int">Learning</span></div>
+          <div class="skill-row"><span>Bootstrap</span><span class="s-level adv">Comfortable</span></div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.12s">
+        <div class="cs-grid">
+          <div class="cs-box">
+            <div class="cs-box-title">IT Fundamentals</div>
+            <ul class="cs-list">
+              <li>Computer Networking</li>
+              <li>Operating Systems</li>
+              <li>Database Management</li>
+              <li>Systems Analysis</li>
+              <li>Hardware Basics</li>
+            </ul>
+          </div>
+          <div class="cs-box">
+            <div class="cs-box-title">Programming Concepts</div>
+            <ul class="cs-list">
+              <li>Object-Oriented Prog.</li>
+              <li>Data Structures (intro)</li>
+              <li>Problem Solving</li>
+              <li>REST APIs</li>
+              <li>Version Control</li>
+            </ul>
+          </div>
+          <div class="cs-box">
+            <div class="cs-box-title">Web Development</div>
+            <ul class="cs-list">
+              <li>Responsive Design</li>
+              <li>DOM Manipulation</li>
+              <li>Form Validation</li>
+              <li>CRUD Operations</li>
+              <li>Browser DevTools</li>
+            </ul>
+          </div>
+          <div class="cs-box">
+            <div class="cs-box-title">Soft Skills</div>
+            <ul class="cs-list">
+              <li>Documentation</li>
+              <li>Team Collaboration</li>
+              <li>Self-Directed Learning</li>
+              <li>Time Management</li>
+              <li>Problem Decomposition</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="learning-card" id="learningCard">
+          <div class="lc-title">// Currently Learning</div>
+          <div class="learn-items">
+            <div class="li-row">
+              <div class="li-top"><span class="li-name">React.js</span><span class="li-pct">35%</span></div>
+              <div class="li-bar"><div class="li-fill" data-w="35"></div></div>
+            </div>
+            <div class="li-row">
+              <div class="li-top"><span class="li-name">JavaScript (ES6+)</span><span class="li-pct">55%</span></div>
+              <div class="li-bar"><div class="li-fill" data-w="55"></div></div>
+            </div>
+            <div class="li-row">
+              <div class="li-top"><span class="li-name">Node.js / Express</span><span class="li-pct">20%</span></div>
+              <div class="li-bar"><div class="li-fill" data-w="20"></div></div>
+            </div>
+            <div class="li-row">
+              <div class="li-top"><span class="li-name">Data Structures & Algorithms</span><span class="li-pct">25%</span></div>
+              <div class="li-bar"><div class="li-fill" data-w="25"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE (unchanged) -->
+  <section id="timeline">
+    <div class="reveal">
+      <p class="section-label">My Journey</p>
+      <h2 class="section-h">How I<br>Got Here<em>.</em></h2>
+    </div>
+    <div class="timeline" id="tlContainer">
+      <div class="tl current">
+        <div class="tl-meta">2025 · Present</div>
+        <div class="tl-title">Actively Building & Job Searching</div>
+        <div class="tl-sub">Working on personal web projects to grow my portfolio and seeking part-time, freelance, or OJT opportunities in web development.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-meta">2024 · School Year</div>
+        <div class="tl-title">2nd Year — First Real Project</div>
+        <div class="tl-sub">Completed my first full web project combining HTML, CSS, JavaScript, and PHP with a MySQL database for a school requirement. Pushed it to GitHub and shared it publicly.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-meta">2024 · Milestone</div>
+        <div class="tl-title">Discovered Web Development</div>
+        <div class="tl-sub">Fell in love with frontend development after finishing a basic HTML/CSS project. Started following YouTube tutorials and building mini-projects on the side.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-meta">2023 · School Year</div>
+        <div class="tl-title">1st Year — Foundations</div>
+        <div class="tl-sub">Learned programming basics, computer hardware, networking fundamentals, and introductory database concepts. Wrote my first Python scripts.</div>
+      </div>
+      <div class="tl">
+        <div class="tl-meta">2023 · Enrollment</div>
+        <div class="tl-title">Started B.S. Information Technology</div>
+        <div class="tl-sub">Enrolled in BSIT driven by curiosity about how apps and websites work. Set a goal: become a software developer before graduation.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (unchanged) -->
+  <section id="contact">
+    <div class="contact-left reveal">
+      <p class="section-label">Contact</p>
+      <h2 class="section-h">Let's<br>Connect<em>.</em></h2>
+      <p>I'm a student looking for OJT placements, freelance work, or simply mentors and collaborators. If you have an opportunity or just want to talk tech — reach out!</p>
+      <a href="mailto:hello@yourname.com" class="contact-email">hello@yourname.com ↗</a>
+      <div class="contact-socials">
+        <a href="https://github.com" target="https://github.com/clarenz-syntax" class="soc-pill">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" class="soc-pill">LinkedIn</a>
+        <a href="https://facebook.com" target="https://www.facebook.com/itzclarenzzz" class="soc-pill">Facebook</a>
+        <a href="#" class="soc-pill">Resume PDF</a>
+      </div>
+    </div>
+    <div class="contact-right reveal" style="transition-delay:.15s">
+      <div style="font-family:var(--ff-mono);font-size:.57rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted2);margin-bottom:1.3rem;">// send_message()</div>
+      <label class="form-label">Name</label>
+      <input class="form-input" type="text" placeholder="Your name"/>
+      <label class="form-label">Email</label>
+      <input class="form-input" type="email" placeholder="your@email.com"/>
+      <label class="form-label">Message</label>
+      <textarea class="form-input" rows="4" placeholder="What's on your mind?"></textarea>
+      <button class="btn-primary" style="width:100%;justify-content:center;cursor:none;border:none;" onclick="handleSend(this)">Send Message →</button>
+      <p id="form-msg" style="font-family:var(--ff-mono);font-size:.6rem;color:var(--navy);margin-top:.75rem;display:none;">✓ Thanks! I'll get back to you soon.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <em>Clarenz</em> — Built with HTML, CSS & JS</p>
+    <p>BSIT Student · Philippines</p>
+    <button class="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
