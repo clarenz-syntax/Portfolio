@@ -757,6 +757,89 @@ footer em{color:var(--orange);font-style:normal;}
 }
 .btt:hover{color:var(--orange);}
 
+/* ── WEATHER PROJECT CARD ── */
+.weather-proj-visual {
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 60%, #1a2030 100%) !important;
+  min-height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+.weather-proj-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(88,166,255,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.weather-orb-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .8rem;
+}
+.weather-orb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather-orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid rgba(88,166,255,0.28);
+  animation: wOrb 3.5s linear infinite;
+}
+.weather-orb-ring.r2 {
+  inset: -12px;
+  border-color: rgba(88,166,255,0.13);
+  border-style: dashed;
+  animation: wOrb 7s linear infinite reverse;
+}
+@keyframes wOrb {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.weather-orb-core {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 12px rgba(88,166,255,0.5));
+  animation: wFloat 4s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+@keyframes wFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+.weather-stat-pills {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wsp {
+  font-family: var(--ff-mono);
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  padding: .28rem .75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(88,166,255,0.25);
+  background: rgba(88,166,255,0.08);
+  color: #58a6ff;
+}
+.wsp-temp {
+  font-size: .65rem;
+  background: rgba(224,96,48,0.12);
+  border-color: rgba(224,96,48,0.3);
+  color: var(--orange);
+}
+
 /* ── KEYFRAMES ── */
 @keyframes slideUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:none;}}
